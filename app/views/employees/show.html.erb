@@ -6,5 +6,5 @@
   <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
   <%= link_to "Back to employees", employees_path %>
 
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+  <%= button_to "Destroy this employee", @employee, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 </div>
