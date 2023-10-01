@@ -21,6 +21,7 @@ class EmployeesController < ApplicationController
 
   # POST /employees or /employees.json
   def create
+    sleep 1
     @employee = Employee.new(employee_params)
 
     respond_to do |format|
