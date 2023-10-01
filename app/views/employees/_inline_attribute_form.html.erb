@@ -1,0 +1,46 @@
+<%= turbo_frame_tag params[:attribute] do %>
+  <%= form_with(model: employee, url: [employee, attribute: params[:attribute]], method: :patch) do |form| %>
+
+    <% if params[:attribute].eql? 'first_name' %>
+      <div>
+        <%= form.label :first_name, style: "display: block" %>
+        <%= form.text_field :first_name, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'last_name' %>
+      <div>
+        <%= form.label :last_name, style: "display: block" %>
+        <%= form.text_field :last_name, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'dob' %>
+      <div>
+        <%= form.label :dob, style: "display: block" %>
+        <%= form.datetime_field :dob, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'country' %>
+      <div>
+        <%= form.label :country, style: "display: block" %>
+        <%= form.text_field :country, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'phone' %>
+      <div>
+        <%= form.label :phone, style: "display: block" %>
+        <%= form.text_field :phone, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+
+    <% if params[:attribute].eql? 'email' %>
+      <div>
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, onfocusout: 'this.form.requestSubmit()' %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
