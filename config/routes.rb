@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
+  root to: redirect('/employees')
+  get 'dashboard', to: 'static#dashboard'
   resources :employees
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
