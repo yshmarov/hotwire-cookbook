@@ -6,5 +6,12 @@
   <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
   <%= link_to "Back to employees", employees_path %>
 
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+  <%# WILL NOT WORK %>
+  <%#= link_to "Destroy this employee", @employee, method: :delete %>
+
+  <%# GOOD %>
+  <%= link_to "Destroy this employee", @employee, data: { turbo_method: :delete } %>
+
+  <%# BEST %>
+  <%#= button_to "Destroy this employee", @employee, method: :delete %>
 </div>
