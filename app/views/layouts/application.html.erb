@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <div id='foo' data-turbo-permanent="true">
+      <%= audio_tag 'sample-15s', controls: true %>
+    </div>
+    <div id='bar' data-turbo-permanent="true">
+      <%= video_tag 'sample-5s', controls: true, width: '500px' %>
+    </div>
     <%= link_to 'Dashboard', dashboard_path %>
     <%= link_to 'Employees', employees_path %>
     <%= yield %>
