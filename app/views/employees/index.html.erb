@@ -4,10 +4,16 @@
 
 <div id="employees">
   <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
+    <details>
+      <summary>
+        <%= employee.first_name %>
+        <%= employee.last_name %>
+      </summary>
+      <%= turbo_frame_tag employee, target: "_top", loading: :lazy, src: employee_path(employee) do %>
+        Loading...
+      <% end %>
+    </details>
+    <hr>
   <% end %>
 </div>
 
