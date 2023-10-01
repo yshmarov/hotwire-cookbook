@@ -3,7 +3,11 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = if params[:query].present?
+        Employee.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%")
+      else
+        Employee.all
+      end
   end
 
   # GET /employees/1 or /employees/1.json
