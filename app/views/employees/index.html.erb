@@ -4,10 +4,20 @@
 
 <div id="employees">
   <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
+    <%= employee.first_name %>
+    <%= employee.last_name %>
+    <span class="hoverWrapper">
+      <b>Details...</b>
+      <div id="hoverContent">
+        <%= turbo_frame_tag employee, target: "_top", role: "tooltip", src: employee_path(employee), loading: :lazy do %>
+          Loading...
+        <% end %>
+        <p>
+          <%= link_to "Show this employee", employee %>
+        </p>
+      </div>
+    </span>
+    <hr>
   <% end %>
 </div>
 
