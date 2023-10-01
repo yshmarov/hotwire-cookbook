@@ -42,6 +42,8 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%#= form.submit %>
+    <%#= form.submit "Submit", data: {disable_with: "Submitting..."} %>
+    <%= form.submit "Submit", data: {turbo_submits_with: "Submitting..."} %>
   </div>
 <% end %>
