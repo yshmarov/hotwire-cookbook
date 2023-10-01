@@ -8,6 +8,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1 or /employees/1.json
   def show
+    sleep 1
   end
 
   # GET /employees/new
