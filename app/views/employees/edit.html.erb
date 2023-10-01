@@ -1,6 +1,10 @@
 <h1>Editing employee</h1>
 
-<%= render "form", employee: @employee %>
+<% if params[:attribute].present? %>
+  <%= render "inline_attribute_form", employee: @employee %>
+<% else %>
+  <%= render "form", employee: @employee %>
+<% end %>
 
 <br>
 

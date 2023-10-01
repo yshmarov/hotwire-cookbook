@@ -1,32 +1,11 @@
 <div id="<%= dom_id employee %>">
-  <p>
-    <strong>First name:</strong>
-    <%= employee.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= employee.last_name %>
-  </p>
-
-  <p>
-    <strong>Dob:</strong>
-    <%= employee.dob %>
-  </p>
-
-  <p>
-    <strong>Country:</strong>
-    <%= employee.country %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= employee.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= employee.email %>
-  </p>
-
+  <%# [:first_name, :last_name, :dob, :country, :phone, :email].each do |attribute| %>
+  <% Employee::INLINE_EDITABLE_ATTRS.each do |attribute| %>
+    <%= turbo_frame_tag attribute do %>
+    <p>
+      <strong><%= attribute %>:</strong>
+      <%= link_to (employee[attribute].presence || 'Edit'), [:edit, employee, attribute: attribute] %>
+    </p>
+    <% end %>
+  <% end %>
 </div>
