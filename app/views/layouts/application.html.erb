@@ -13,6 +13,12 @@
   <body>
     <%= link_to 'Dashboard', dashboard_path %>
     <%= link_to 'Employees', employees_path %>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div,
+                      value,
+                      data: { controller: "flash", action: "click->flash#close" },
+                      style: "color: green; cursor: pointer;" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
