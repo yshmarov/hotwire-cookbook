@@ -2,13 +2,33 @@
 
 <h1>Employees</h1>
 
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New employee", new_employee_path %>
+<table class="table-with-borders">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.first_name %></td>
+        <td><%= employee.last_name %></td>
+        <td><%= employee.dob.strftime("%Y-%m-%d") %></td>
+        <td><%= employee.country %></td>
+        <td><%= employee.phone %></td>
+        <td><%= employee.email %></td>
+        <td>
+          <%= link_to "Show", employee %>
+          <%= link_to "Edit", edit_employee_path(employee) %>
+          <%= button_to "Destroy", employee, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
