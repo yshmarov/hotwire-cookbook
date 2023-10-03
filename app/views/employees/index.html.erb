@@ -2,6 +2,9 @@
 
 <h1>Employees</h1>
 
+<form data-controller="form-reset">
+  <input type="search" placeholder="First or Last name">
+</form>
 <div id="employees">
   <% @employees.each do |employee| %>
     <%= render employee %>
