@@ -2,13 +2,45 @@
 
 <h1>Employees</h1>
 
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
-  <% end %>
-</div>
+<%= Time.zone.now %>
+<%#= link_to "New employee", new_employee_path %>
 
-<%= link_to "New employee", new_employee_path %>
+<%= search_form_for @q, method: :get, data: {turbo_action: "advance", turbo_frame: :employees_list} do |f| %>
+  <%= f.label :first_name_or_last_name_or_email_cont, "Query" %>
+  <%= f.search_field :first_name_or_last_name_or_email_cont, oninput: "this.form.requestSubmit()", autofocus: true %>
+<% end %>
+
+<%#= turbo_frame_tag :employees_list do %>
+<%#= turbo_frame_tag :employees_list, data: {turbo_action: "advance" } do %>
+<%= turbo_frame_tag :employees_list, data: {turbo_action: "advance" }, target: "_top" do %>
+  <table class="table-with-borders">
+    <thead>
+      <tr>
+        <th><%= sort_link(@q, :first_name, 'First Name') %></th>
+        <th><%= sort_link(@q, :last_name, 'Last Name') %></th>
+        <th>Date of Birth</th>
+        <th><%= sort_link(@q, :country, 'Country') %></th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= highlight employee.first_name, params.dig(:q, :first_name_or_last_name_or_email_cont) %></td>
+          <td><%= highlight employee.last_name, params.dig(:q, :first_name_or_last_name_or_email_cont) %></td>
+          <td><%= employee.dob.strftime("%Y-%m-%d") %></td>
+          <td><%= employee.country %></td>
+          <td><%= employee.phone %></td>
+          <td><%= highlight employee.email, params.dig(:q, :first_name_or_last_name_or_email_cont) %></td>
+          <td>
+            <%= link_to "Show", employee %>
+            <%= link_to "Edit", edit_employee_path(employee) %>
+            <%= button_to "Destroy", employee, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -169,6 +169,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.5.0)
       psych (>= 4.0.0)
     redis (4.8.1)
@@ -229,6 +233,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.5, >= 7.0.5.1)
+  ransack
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails

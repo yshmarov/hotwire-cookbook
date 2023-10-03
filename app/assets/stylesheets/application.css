@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.table-with-borders {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-with-borders th, .table-with-borders td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.table-with-borders th {
+  background-color: #f2f2f2;
+}
