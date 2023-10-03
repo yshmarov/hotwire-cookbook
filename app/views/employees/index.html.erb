@@ -2,13 +2,13 @@
 
 <h1>Employees</h1>
 
+<%= link_to 'New employee', new_employee_path, data: { turbo_frame: 'modal' } %>
 <div id="employees">
   <% @employees.each do |employee| %>
     <%= render employee %>
     <p>
       <%= link_to "Show this employee", employee %>
+      <%= link_to "Edit", edit_employee_path(employee), data: { turbo_frame: 'modal' } %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New employee", new_employee_path %>
