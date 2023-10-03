@@ -2,6 +2,10 @@
 
 <h1>Employees</h1>
 
+<form data-controller="debounce">
+  <input type="text" name="query" data-action="input->debounce#delayedsubmit" autocomplete="off"/>
+</form>
+
 <div id="employees">
   <% @employees.each do |employee| %>
     <%= render employee %>
