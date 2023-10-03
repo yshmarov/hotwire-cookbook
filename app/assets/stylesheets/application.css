@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.min.css')

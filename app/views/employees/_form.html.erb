@@ -1,3 +1,4 @@
+<%# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.min.css"> %>
 <%= form_with(model: employee) do |form| %>
   <% if employee.errors.any? %>
     <div style="color: red">
@@ -28,7 +29,10 @@
 
   <div>
     <%= form.label :country, style: "display: block" %>
-    <%= form.text_field :country %>
+    <%= form.select :country,
+                    ["USA", "Ukraine", "Netherlands", "France"],
+                    { include_blank: true },
+                    { data: { controller: 'slim' } } %>
   </div>
 
   <div>
