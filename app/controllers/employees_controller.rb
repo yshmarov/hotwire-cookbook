@@ -48,6 +48,8 @@ class EmployeesController < ApplicationController
     @employee.destroy
 
     respond_to do |format|
+      flash.now[:notice] = "Employee was successfully destroyed #{Time.zone.now}"
+      format.turbo_stream
       format.html { redirect_to employees_url, notice: "Employee was successfully destroyed." }
     end
   end

@@ -1,4 +1,4 @@
-<div id="<%= dom_id employee %>">
+<div id="<%= dom_id employee %>" style="border: 1px solid; padding:4px;">
   <p>
     <strong>First name:</strong>
     <%= employee.first_name %>
@@ -29,4 +29,5 @@
     <%= employee.email %>
   </p>
 
+  <%= button_to "Destroy this employee", employee, method: :delete %>
 </div>

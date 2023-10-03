@@ -1,13 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Employees</h1>
+<%= Time.zone.now %>
+
+<h1>
+  Employees
+  <%= content_tag :span, @employees.count, id: "counter" %>
+</h1>
 
 <div id="employees">
   <% @employees.each do |employee| %>
     <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
   <% end %>
 </div>
 
