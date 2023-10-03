@@ -48,6 +48,7 @@ class EmployeesController < ApplicationController
     @employee.destroy
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to employees_url, notice: "Employee was successfully destroyed." }
     end
   end
