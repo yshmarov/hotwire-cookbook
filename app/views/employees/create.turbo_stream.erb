@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "employees" do %>
+  <%= render partial: "employees/employee", locals: { employee: @employee } %>
+<% end %>
+
+<%= turbo_stream.update :modal, nil %>

@@ -29,4 +29,5 @@
     <%= employee.email %>
   </p>
 
+  <%= link_to "Edit", edit_employee_path(employee), data: { turbo_frame: 'modal' } %>
 </div>
