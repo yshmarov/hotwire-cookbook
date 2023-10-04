@@ -12,11 +12,13 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    redirect_to root_path unless turbo_frame_request?
     @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
+    redirect_to root_path unless turbo_frame_request?
   end
 
   # POST /employees or /employees.json
