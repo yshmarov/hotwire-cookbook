@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.order(created_at: :desc)
   end
 
   # GET /employees/1 or /employees/1.json
@@ -12,11 +12,13 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    redirect_to root_path unless turbo_frame_request?
     @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
+    redirect_to root_path unless turbo_frame_request?
   end
 
   # POST /employees or /employees.json
@@ -25,6 +27,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
+        format.turbo_stream
         format.html { redirect_to employee_url(@employee), notice: "Employee was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,6 +39,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
+        format.turbo_stream
         format.html { redirect_to employee_url(@employee), notice: "Employee was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
