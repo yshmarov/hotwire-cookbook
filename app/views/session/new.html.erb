@@ -1,0 +1,11 @@
+<h1>Bienvenido a Tuti Fruti!</h1>
+
+<% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_tag session_path do %>
+        <label for="email">Ingresa tu Correo</label>
+        <%= text_field_tag :email %>
+        <%= submit_tag "Empezar juego" %>
+<% end %>
