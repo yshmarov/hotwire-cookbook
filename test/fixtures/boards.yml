@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  last_name: MyString
+  city: MyString
+  color: MyString
+  animal: MyString
+  fruit: MyString
+  employee: one
+
+two:
+  name: MyString
+  last_name: MyString
+  city: MyString
+  color: MyString
+  animal: MyString
+  fruit: MyString
+  employee: two
